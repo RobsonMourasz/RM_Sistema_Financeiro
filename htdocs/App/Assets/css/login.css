@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100dvh;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Archivo Black", sans-serif;
+    background-color: color-mix(in srgb, #1d9682 80%, #126254 40%);
+}
+
+section {
+    background-color: #fff;
+    border-radius: 12px;
+    height: 60vh;
+    width: 40%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    box-shadow: 5px 5px 15px black;
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #126254;
+    border-radius: 12px 0 0 12px;
+}
+
+.legend-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.884);
+    font-family: "Archivo Black", sans-serif;
+}
+
+.legend-title h3 {
+    font-family: "Archivo Black", sans-serif;
+}
+
+.legend-logo img {
+    margin: auto;
+}
+
+.legend-logo p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.884);
+
+}
+
+.legend-footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.884);
+}
+
+section .legend {
+    text-align: start;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: sans-serif;
+    padding: .5em;
+}
+
+form {
+    margin: auto 0;
+    height: 100%;
+}
+
+
+.login h3 {
+    padding-bottom: 1em;
+    font-family: "Archivo Black", sans-serif;
+}
+
+.group-input {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.group-input label {
+    text-align: start;
+    font-weight: 600;
+}
+
+.group-input input:not([type="submit"]) {
+    padding: .4em;
+    border-radius: 10px;
+    margin: .5em 0 1em 0;
+    border: none;
+    outline: none;
+    background-color: #1d9682;
+    color: #fff;
+}
+
+.group-input input:not([type="submit"]):focus {
+    box-shadow: 0 0 15px #666;
+}
+
+.group-input input:not([type="submit"])::placeholder {
+    color: #c4c5c5;
+}
+
+.group-input input[type="submit"] {
+    padding: .8em;
+    border-radius: 25px;
+    width: 60%;
+    display: inline-block;
+    border: 1px solid #666;
+    outline: none;
+    background-color: #1d9682;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.group-input input[type="submit"]::selection {
+    background-color: #1d9682;
+    @import
+}
+
+.alerta {
+    display: block;
+    height: 1.5em;
+    width: 20em;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.erro {
+    background-color: red;
+    color: white;
+}
+
+#carregando {
+    position: absolute;
+}
+
+@media screen and (max-width: 46.87rem) {
+    .legend {
+        display: none;
+    }
+
+    section {
+        animation: grid-template-columns 2s;
+        grid-template-columns: auto;
+    }
+
+    section{
+        width: 70%;
+    }
+}

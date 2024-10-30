@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App/Assets/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Página inicial</title>
+</head>
+
+<body>
+    <section>
+        <div class="legend">
+            <div class="legend-title">
+                <h3>RM Sistema Financeiro</h3>
+            </div>
+            <div class="legend-logo legend">
+                <img src="App/Assets/img/logo-30x20.png" alt="Logo Tipo" width="50">
+                <p>Sistema Financeiro</p>
+            </div>
+            <div class="legend-footer">
+                <p>contato (34) 9 9999-9999</p>
+            </div>
+        </div>
+        <div class="login">
+
+            <div class="group-input">
+                <h3>Faça Seu Login</h3>
+
+                <small id="alerta-email" class="alerta" role="alert"></small>
+
+                <label for="email">E-mail</label>
+                <input type="text" name="email" id="email" required placeholder="amostra@amostra.com">
+
+                <small id="alerta-senha" class="alerta" role="alert"></small>
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required placeholder="Mínimo 4 dígitos">
+                <input type="submit" value="Acessar" name="acessar" id="acessar">
+            </div>
+
+        </div>
+    </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="App/Assets/js/validadorLogin.js"></script>
+    
+
+</body>
+
+</html>

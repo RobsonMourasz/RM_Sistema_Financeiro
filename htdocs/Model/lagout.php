@@ -1,14 +1,12 @@
-<?php 
+<?php
 
 @session_start();
 
-if(isset($_SESSION['sessao_ativa'])){
+if (isset($_SESSION['sessao_ativa'])) {
     @session_destroy();
-    $LOCAL= __FILE__;
-    
-    echo "<script>window.location.assign('$LOCAL')</script>";
+    header('refresh:0 ;url=../index.html');
     exit();
-}else{
-   header('refresh:0 ;url=../index.php');
-
+} else {
+    header('refresh:0 ;url=../index.html');
+    die();
 }

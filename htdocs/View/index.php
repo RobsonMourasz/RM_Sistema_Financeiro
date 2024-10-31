@@ -1,21 +1,19 @@
 <?php
 @session_start();
-@require_once __DIR__.'/../App/Config/Conexao.php';
-@require_once __DIR__.'/../Model/sessao_ativa.php';
+@require_once __DIR__ . '/../App/Config/Conexao.php';
+@require_once __DIR__ . '/../Model/sessao_ativa.php';
 
 if (isset($_GET['url'])) {
     if (!empty($_GET['url'])) {
 
-        if(isset($_GET['model'])){
+        if (isset($_GET['model'])) {
 
             $UrlChamada = __DIR__;
-            $UrlChamada = str_replace('View', 'Model/',$UrlChamada);
+            $UrlChamada = str_replace('View', 'Model/', $UrlChamada);
             $UrlChamada .= $_GET['url'];
+        } else {
 
-        }else{
-
-            $UrlChamada = __DIR__ . '/page/'.$_GET['url'] ;
-
+            $UrlChamada = __DIR__ . '/page/' . $_GET['url'];
         }
     }
 }
@@ -25,24 +23,25 @@ if (isset($_GET['url'])) {
 <html lang="br">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Robson Moura">
 
-    <title>Sistema de Financias Pessoais</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom fonts for this template-->
     <link href="../App/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="../App/Assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <title>Sistema de Financias Pessoais</title>
 </head>
 
 <body id="page-top">
@@ -97,16 +96,16 @@ if (isset($_GET['url'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Financeiro:</h6>
-                        <a class="collapse-item" href="?url=cadDespesas">Cadastrar Despesa</a>
-                        <a class="collapse-item" href="?url=cadReceita">Cadastrar Receita</a>
+                        <a class="collapse-item" href="" data-toggle="modal" data-target="#cad_despesa">Cadastrar Despesa</a>
+                        <a class="collapse-item" href="" data-toggle="modal" data-target="#cad_receita">Cadastrar Receita</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?PHP echo __FILE__.'/../../Model/lagout.php' ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="../Model/lagout.php">
+                    <i class="fas fa-power-off"></i>
                     <span>Sair</span>
                 </a>
             </li>
@@ -335,7 +334,6 @@ if (isset($_GET['url'])) {
                         if (file_exists($UrlChamada)) {
 
                             include_once($UrlChamada);
-
                         } else {
 
                             include_once(__DIR__ . '/page/404.html');
@@ -390,6 +388,117 @@ if (isset($_GET['url'])) {
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- MODAL CADASTRAR DESPESA -->
+
+    <div id="cad_despesa" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nova despesa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-sm-12 p-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Descrição</div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-5 p-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Valor R$</div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-5 p-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Data</div>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="col-sm-2 p-2 mr-auto">
+                                <input type="checkbox" checked hidden>
+                                <span style="display: block; width: 18px; height: 18px; margin-top: 2em;"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                            </div>
+
+                            <div class="col-sm-6 p-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Conta</div>
+                                <select name="conta" id="conta" class="form-control">
+                                    <option selected>Conta Inicial</option>
+                                    <option>Nubank</option>
+                                    <option>Sicoob</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 p-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Categoria</div>
+                                <select name="categoria" id="categoria" class="form-control">
+                                    <option selected>Buscar a Categoria</option>
+                                    <option>Pessoal</option>
+                                    <option>Tudo</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- MODAL CADASTRAR RECEITA -->
+
+    <div id="cad_receita" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../App/Assets/vendor/jquery/jquery.min.js"></script>
     <script src="../App/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -400,7 +509,8 @@ if (isset($_GET['url'])) {
     <!-- Custom scripts for all pages-->
     <script src="../App/Assets/js/sb-admin-2.min.js"></script>
 
-
+    <!--Get your code at fontawesome.com-->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
 </body>
 

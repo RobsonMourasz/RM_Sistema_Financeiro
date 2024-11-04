@@ -405,93 +405,92 @@ if (isset($_GET['url'])) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <form action="" method="post">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
 
-                    <div class="container">
-                        <div class="row">
 
-                            <div class="col-sm-12 p-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Descrição</div>
-                                <input type="text" class="form-control" require>
-                            </div>
-                            <div class="col-sm-5 p-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Valor R$</div>
-                                <input type="text" class="form-control" value="R$ 0,00" require>
-                            </div>
-                            <div class="col-sm-5 p-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Data</div>
-                                <input id="data_vencimento" type="date" class="form-control" require>
-                            </div>
-
-                            <div class="col-sm-2 p-2 mr-auto">
-                                <input id="checkbox-confirme" type="checkbox" checked hidden>
-                                <span id="confirme" class="Confirmado" onclick="MudarConfirme()"></span>
-                            </div>
-
-                            <div class="col-sm-6 p-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Conta</div>
-                                <select name="conta" id="conta" class="form-control">
-                                    <option selected>Conta Inicial</option>
-                                    <option>Nubank</option>
-                                    <option>Sicoob</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-6 p-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Categoria</div>
-                                <select name="categoria" id="categoria" class="form-control">
-                                    <option selected>Buscar a Categoria</option>
-                                    <option>Pessoal</option>
-                                    <option>Tudo</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-12 d-flex justify-content-evenly">
-                                <button class="button-person" id="btnRepetir"><i class="fas fa-exchange-alt"></i></button>
-                                <button class="button-person" id="btnObs"><i class="fab fa-stack-exchange"></i></button>
-                                <button class="button-person" id="btnAnexo"><i class="fas fa-paperclip"></i></button>
-                            </div>
-                            <!-- Btn Repetir -->
-                            <div class="col-sm-12 d-none" id="apresentarRepetir">
-                                <p class="form-label">Repetir</p>
-                                <div class="form-check">
-                                    <input type="checkbox" name="fixa" id="fixa" class="form-check-input">
-                                    <label for="fixa" class="form-check-label" style="user-select: none;"> É uma despesa Fixa ?</label>
+                                <div class="col-sm-12 p-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Descrição</div>
+                                    <input type="text" class="form-control" require>
                                 </div>
-                                <div class="form-check">
-                                    <input type="checkbox" name="parcelado" id="parcelado" class="form-check-input">
-                                    <label for="parcelado" class="form-check-label" style="user-select: none;"> É uma despesa Parcelada ?</label>
+                                <div class="col-sm-5 p-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Valor R$</div>
+                                    <input type="text" class="form-control" value="R$ 0,00" require>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-12 d-none" id="apresentarObs">
-                                <p class="form-label">Observação</p>
-                                <textarea name="obs" id="obs" style="resize: none;" class="form-control"></textarea>
-                            </div>
-
-                            <div class="col-sm-12 d-none" id="apresentarAnexo">
-                                <p class="form-label">Anexo</p>
-                                <div class="input-group">
-                                    <input type="file" class="form-control" id="anexo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="anexo">
-                                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"></button>
+                                <div class="col-sm-5 p-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Data</div>
+                                    <input id="data_vencimento" type="date" class="form-control" require>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
+
+                                <div class="col-sm-2 p-2 mr-auto">
+                                    <input id="checkbox-confirme" type="checkbox" checked hidden>
+                                    <span id="confirme" class="Confirmado" onclick="MudarConfirme()"></span>
+                                </div>
+
+                                <div class="col-sm-6 p-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Conta</div>
+                                    <select name="conta" id="conta" class="form-control">
+                                        <option selected>Conta Inicial</option>
+                                        <option>Nubank</option>
+                                        <option>Sicoob</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 p-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Categoria</div>
+                                    <select name="categoria" id="categoria" class="form-control">
+                                        <option selected>Buscar a Categoria</option>
+                                        <option>Pessoal</option>
+                                        <option>Tudo</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-12 d-flex justify-content-evenly">
+                                    <button class="button-person" id="btnRepetir"><i class="fas fa-exchange-alt"></i></button>
+                                    <button class="button-person" id="btnObs"><i class="fab fa-stack-exchange"></i></button>
+                                    <button class="button-person" id="btnAnexo"><i class="fas fa-paperclip"></i></button>
+                                </div>
+                                <!-- Btn Repetir -->
+                                <div class="col-sm-12 d-none" id="apresentarRepetir">
+                                    <p class="form-label">Repetir</p>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="fixa" id="fixa" class="form-check-input">
+                                        <label for="fixa" class="form-check-label" style="user-select: none;"> É uma despesa Fixa ?</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="parcelado" id="parcelado" class="form-check-input">
+                                        <label for="parcelado" class="form-check-label" style="user-select: none;"> É uma despesa Parcelada ?</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 d-none" id="apresentarObs">
+                                    <p class="form-label">Observação</p>
+                                    <textarea name="obs" id="obs" style="resize: none;" class="form-control"></textarea>
+                                </div>
+
+                                <div class="col-sm-12 d-none" id="apresentarAnexo">
+                                    <p class="form-label">Anexo</p>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="anexo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="anexo">
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>
+
                     </div>
 
-                </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
+                    </div>
 
-
-
-                <div class="modal-footer justify-content-center">
-                    <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

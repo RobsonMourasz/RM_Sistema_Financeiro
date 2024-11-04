@@ -30,15 +30,17 @@ if (isset($_GET['url'])) {
     <meta name="author" content="Robson Moura">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../App/Assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../App/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom fonts for this template-->
     <link href="../App/Assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="../App/Assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../App/Assets/css/styleIndex.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Sistema de Financias Pessoais</title>
@@ -411,22 +413,22 @@ if (isset($_GET['url'])) {
                             <div class="col-sm-12 p-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Descrição</div>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" require>
                             </div>
                             <div class="col-sm-5 p-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Valor R$</div>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="R$ 0,00" require>
                             </div>
                             <div class="col-sm-5 p-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Data</div>
-                                <input type="date" class="form-control">
+                                <input id="data_vencimento" type="date" class="form-control" require>
                             </div>
 
                             <div class="col-sm-2 p-2 mr-auto">
-                                <input type="checkbox" checked hidden>
-                                <span style="display: block; width: 18px; height: 18px; margin-top: 2em;"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                                <input id="checkbox-confirme" type="checkbox" checked hidden>
+                                <span id="confirme" class="Confirmado" onclick="MudarConfirme()"></span>
                             </div>
 
                             <div class="col-sm-6 p-2">
@@ -447,17 +449,35 @@ if (isset($_GET['url'])) {
                                     <option>Tudo</option>
                                 </select>
                             </div>
-                            <div class="col-sm-6">
-
+                            <div class="col-sm-12 d-flex justify-content-evenly">
+                                <button class="button-person" id="btnRepetir"><i class="fas fa-exchange-alt"></i></button>
+                                <button class="button-person" id="btnObs"><i class="fab fa-stack-exchange"></i></button>
+                                <button class="button-person" id="btnAnexo"><i class="fas fa-paperclip"></i></button>
                             </div>
-                            <div class="col-sm-6">
-
+                            <!-- Btn Repetir -->
+                            <div class="col-sm-12 d-none" id="apresentarRepetir">
+                                <p class="form-label">Repetir</p>
+                                <div class="form-check">
+                                    <input type="checkbox" name="fixa" id="fixa" class="form-check-input">
+                                    <label for="fixa" class="form-check-label" style="user-select: none;"> É uma despesa Fixa ?</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="parcelado" id="parcelado" class="form-check-input">
+                                    <label for="parcelado" class="form-check-label" style="user-select: none;"> É uma despesa Parcelada ?</label>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
 
+                            <div class="col-sm-12 d-none" id="apresentarObs">
+                                <p class="form-label">Observação</p>
+                                <textarea name="obs" id="obs" style="resize: none;" class="form-control"></textarea>
                             </div>
-                            <div class="col-sm-6">
 
+                            <div class="col-sm-12 d-none" id="apresentarAnexo">
+                                <p class="form-label">Anexo</p>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="anexo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="anexo">
+                                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"></button>
+                                </div>
                             </div>
                             <div class="col-sm-6">
 
@@ -510,7 +530,10 @@ if (isset($_GET['url'])) {
     <script src="../App/Assets/js/sb-admin-2.min.js"></script>
 
     <!--Get your code at fontawesome.com-->
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
+
+    <script src="../App/Assets/js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 

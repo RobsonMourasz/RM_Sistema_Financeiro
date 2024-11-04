@@ -1,0 +1,33 @@
+.Confirmado {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-top: 2em;
+    background-image: url(../icons/Confirmado.png);
+    background-position: center;
+    background-size: auto;
+    cursor: pointer;
+}
+
+.Aberto {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-top: 2em;
+    background-image: url(../icons/Aberto.png);
+    background-position: center;
+    background-size: auto;
+    cursor: pointer;
+}
+
+.button-person{
+    border-radius: 50%;
+    padding: 1rem;
+    border: none;
+    border: 1px solid #c0c0c0;
+    background-color: #ffffff;
+}
+
+.button-person:focus{
+    border: 1px solid #444;
+}
